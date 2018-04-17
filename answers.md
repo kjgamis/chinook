@@ -5,6 +5,10 @@ Provide one or more Active Record queries that retrieve the requested data for e
   ```
   Artist.where("name = ?", 'Queen')
   Album.where("artist_id = ?", 51)
+
+  OR
+
+  Album.where("artist_id = ?", Artist.where("name = ?", 'Queen').ids)
   ```
 2. Count how many tracks belong to the media type "Protected MPEG-4 video file".
   ```
